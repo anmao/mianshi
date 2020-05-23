@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "D:/Application/CMake/bin/cmake.exe" "D:/Project/mianshi"
+ConfigureCommand: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe" "D:/Project/mianshi"
 MakeCommand: D:/Application/CMake/bin/cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -62,15 +62,13 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: D:/Application/mingw/bin/g++.exe
-CompilerVersion: 9.2.0
+Compiler: D:/APPLICATION/MinGW/bin/g++.exe
+CompilerVersion: 4.8.3
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
 ValgrindCommand: 
 ValgrindCommandOptions: 
-DrMemoryCommand: 
-DrMemoryCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
 MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
