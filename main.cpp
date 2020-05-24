@@ -1,10 +1,10 @@
 #include <iostream>
-#include "dataStructure/SqStack.hpp"
+#include "dataStructure/SqList.hpp"
 
 int main(int argc, char** argv) {
     const int LONGTH = 5;
 
-    SqStack S;
+    SqList L;
 
     int size, increment, i;
     
@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
     increment = LONGTH;
     ElemType e, eArray[LONGTH] = {1, 2, 3, 4, 5};
 
-    if (!InitStack_Sq(S, size, increment))
+    if (!InitList_Sq(L, size, increment))
     {
         std::cout << "Init Failed." << std::endl;
         return 1;
@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 
     for (int i = 0; i < LONGTH; ++i)
     {
-        if (!Push_Sq(S, eArray[i]))
+        if (!Append_Sq(L, eArray[i]))
         {
             std::cout << "Push Failed." << std::endl;
             return 1;
@@ -29,19 +29,13 @@ int main(int argc, char** argv) {
     }
     std::cout << "Push Finish." << std::endl;
 
-    if (StackEmpty_Sq(S)) std::cout << "Empty Stack." << std::endl;
+    if (ListEmpty_Sq(L)) std::cout << "Empty Stack." << std::endl;
     else std::cout << "Stack Not Empty." << std::endl;
 
-    GetTop_Sq(S, e);
-    std::cout << "Stack Top elem: " << e << "." << std::endl;
+    std::cout << "Full Item In the Container: " << std::endl;
+    ListTraverse_Sq(L, visit);
 
-    for (int i = 0; i < LONGTH; ++i)
-    {
-        Pop_Sq(S, e);
-        std::cout << "Pop elem: " << e << "." << std::endl;
-    }
-
-    ClearStack_Sq(S);
+    ClearList_Sq(L);
     std::cout << "Clear Finish." << std::endl;
 
     return 0;
