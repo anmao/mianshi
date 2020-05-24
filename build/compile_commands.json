@@ -1,7 +1,0 @@
-[
-{
-  "directory": "D:/Project/mianshi/build",
-  "command": "D:\\Application\\mingw\\bin\\g++.exe   @CMakeFiles/mianshi.dir/includes_CXX.rsp -g   -o CMakeFiles\\mianshi.dir\\main.cpp.obj -c D:\\Project\\mianshi\\main.cpp",
-  "file": "D:/Project/mianshi/main.cpp"
-}
-]
