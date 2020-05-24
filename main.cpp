@@ -1,10 +1,10 @@
 #include <iostream>
-#include "dataStructure/SqList.hpp"
+#include "dataStructure/LinkList.hpp"
 
 int main(int argc, char** argv) {
     const int LONGTH = 5;
 
-    SqList L;
+    LinkList L;
 
     int size, increment, i;
     
@@ -12,31 +12,26 @@ int main(int argc, char** argv) {
     increment = LONGTH;
     ElemType e, eArray[LONGTH] = {1, 2, 3, 4, 5};
 
-    if (!InitList_Sq(L, size, increment))
-    {
-        std::cout << "Init Failed." << std::endl;
-        return 1;
-    }
-    std::cout << "Init Finish." << std::endl;
-
+    std::cout << "origin elements:";
     for (int i = 0; i < LONGTH; ++i)
     {
-        if (!Append_Sq(L, eArray[i]))
-        {
-            std::cout << "Push Failed." << std::endl;
-            return 1;
-        }
+        std::cout << " " << eArray[i];
     }
-    std::cout << "Push Finish." << std::endl;
+    std::cout << std::endl;
 
-    if (ListEmpty_Sq(L)) std::cout << "Empty Stack." << std::endl;
-    else std::cout << "Stack Not Empty." << std::endl;
+    if (create(L, eArray, LONGTH) == ERROR)
+        std::cout << "init fail." << std::endl;
+    std::cout << "init finish." << std::endl;
 
-    std::cout << "Full Item In the Container: " << std::endl;
-    ListTraverse_Sq(L, visit);
+    ListTraverse_L(L, visit);
 
-    ClearList_Sq(L);
-    std::cout << "Clear Finish." << std::endl;
+    DeQueue_LQ(L, e);
+    std::cout << "dequeue item: " << e << std::endl;
 
+    ListTraverse_L(L, visit);
+
+    EnQueue_LQ(L, e);
+
+    ListTraverse_L(L, visit);
     return 0;
 }
