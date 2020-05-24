@@ -2,16 +2,8 @@
 #define SQSTACK_HPP
 
 #include <malloc.h>
+#include "Status.h"
 
-#define TRUE 1
-#define FALSE 0
-#define OK 1
-#define ERROR 0
-#define OVERFLOW -1
-
-#define LONGHT 5
-
-typedef int Status;
 typedef int ElemType;
 
 typedef struct 
@@ -39,16 +31,17 @@ Status DestroyStack_Sq(SqStack &S)
     return OK;
 }
 
-Status StackEmpty_Sq(SqStack &S)
+bool StackEmpty_Sq(SqStack &S)
 {
     return S.top == 0;
 }
 
-void ClearStack_Sq(SqStack &S)
+Status ClearStack_Sq(SqStack &S)
 {
-    if (S.top == 0) return;
+    if (S.top == 0) return OK;
     S.size = 0;
     S.top = 0;
+    return OK;  
 }
 
 Status Push_Sq(SqStack &S, ElemType e)
@@ -65,7 +58,7 @@ Status Push_Sq(SqStack &S, ElemType e)
     return OK;
 }
 
-Status GetTop_Sq(SqStack S, ElemType &e)
+Status GetTop_Sq(SqStack &S, ElemType &e)
 {
     if (S.top == 0) return ERROR;
     e = S.elem[S.top - 1];

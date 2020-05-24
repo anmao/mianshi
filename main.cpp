@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     
     size = LONGTH;
     increment = LONGTH;
-    ElemType e, eArray[LONGHT] = {1, 2, 3, 4, 5};
+    ElemType e, eArray[LONGTH] = {1, 2, 3, 4, 5};
 
     if (!InitStack_Sq(S, size, increment))
     {
@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     }
     std::cout << "Init Finish." << std::endl;
 
-    for (int i = 0; i < LONGHT; ++i)
+    for (int i = 0; i < LONGTH; ++i)
     {
         if (!Push_Sq(S, eArray[i]))
         {
@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
     GetTop_Sq(S, e);
     std::cout << "Stack Top elem: " << e << "." << std::endl;
 
-    for (int i = 0; i < LONGHT; ++i)
+    for (int i = 0; i < LONGTH; ++i)
     {
         Pop_Sq(S, e);
         std::cout << "Pop elem: " << e << "." << std::endl;
