@@ -84,4 +84,60 @@ void printHash(HashTable &H)
     std::cout << std::endl;
 }
 
+Status InsertHash(HashTable &H, KeyType &key);
+
+Status recreateHash(HashTable &H)
+{
+    RcdType *orcd;
+    int *otag, osize;
+    orcd = H.rcd;
+    otag = H.tag;
+    osize = H.size;
+
+    InitHashTable(H, hashsize[index++]);
+    for (int i = 0; i < osize; ++i)
+    {
+        if (otag[i] == 1)
+        {
+            InitHashTable(H, orcd[i].key);
+        }
+    }
+
+    return OK;
+}
+
+Status InsertHash(HashTable &H, KeyType &key)
+{
+    int p, c;
+    if (SearchHash(H, key, p, c) == ERROR)
+    {
+        if (c * 1.0 / H.size < 0.5)
+        {
+            H.rcd[p].key = key;
+            H.tag[p] = 1;
+            H.count++;
+            return OK;
+        }
+        else
+        {
+            recreateHash(H);
+        }
+    }
+
+    return ERROR;
+}
+
+Status DeleteHash(HashTable &H, KeyType &key)
+{
+    int p, c;
+    if (SearchHash(H, key, p, c) == OK)
+    {
+        H.tag[p] = -1;
+        H.count--;
+        return OK;
+    }
+
+    return ERROR;
+}
+
 #endif
