@@ -99,7 +99,7 @@ Status recreateHash(HashTable &H)
     {
         if (otag[i] == 1)
         {
-            InitHashTable(H, orcd[i].key);
+            InsertHash(H, orcd[i].key);
         }
     }
 

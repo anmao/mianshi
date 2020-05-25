@@ -47,12 +47,12 @@ int Leaves(BiTree &T)
     return r + l;
 }
 
-int depTraverse(BiTree &T)
+int depTraverse(BiTree &T, int dep)
 {
-    if (T == NULL) return ERROR;
-    dep = (depTraverse(T->lchild) > depTraverse(T->rchild) ? depTraverse(T->lchild) : depTraverse(T->rchild));
-    
-    return dep + 1;
+    if (T == NULL) return 0;
+    dep = (depTraverse(T->lchild, dep) > depTraverse(T->rchild, dep) ? depTraverse(T->lchild, dep) : depTraverse(T->rchild, dep)) + 1;
+
+    return dep;    
 }
 
 void levTraverse(BiTree &T, Status(*visit)(TElemType &e), int lev)
@@ -89,6 +89,9 @@ bool BiTreeEmpty(BiTree &T)
 
 // 打断二叉树 两端置空
 Status BreakBiTree(BiTree &T, BiTree)
+{
+
+}
 
 // 替换左子树
 
@@ -97,4 +100,4 @@ Status BreakBiTree(BiTree &T, BiTree)
 // 合并二叉树
 
 
-#endiw
+#endif
